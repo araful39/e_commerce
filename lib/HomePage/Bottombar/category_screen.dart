@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Category extends StatefulWidget {
-  const Category({super.key});
+class CategoryScreen extends StatefulWidget {
+  const CategoryScreen({super.key});
 
   @override
-  State<Category> createState() => _CategoryState();
+  State<CategoryScreen> createState() => _CategoryScreenState();
 }
 
-class _CategoryState extends State<Category> {
+class _CategoryScreenState extends State<CategoryScreen> {
   List<Map<String,dynamic>> data=[
     {
       "img":"Images/fish.png","text":"Fish"
@@ -66,31 +66,33 @@ class _CategoryState extends State<Category> {
           ),
         ),
       ),
-        body: GridView.builder(itemCount: data.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
-            mainAxisSpacing: 2,
-           ),
-            itemBuilder: (context,index){
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              width: 100,
-              height: 100,
-              child: Card(
-                color: Colors.white,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(data[index]["img"],color: Color(0xffFFC300),width: 100,height: 100,),
-                      Text(data[index]["text"],style: TextStyle(color: Colors.black),)
-                    ],
+        body: SafeArea(
+          child: GridView.builder(itemCount: data.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+              mainAxisSpacing: 2,
+             ),
+              itemBuilder: (context,index){
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                width: 100,
+                height: 100,
+                child: Card(
+                  color: Colors.white,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(data[index]["img"],color: Color(0xffFFC300),width: 100,height: 100,),
+                        Text(data[index]["text"],style: TextStyle(color: Colors.black),)
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          );
-            }),
+            );
+              }),
+        ),
     );
   }
 }

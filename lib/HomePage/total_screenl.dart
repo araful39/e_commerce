@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Sale extends StatefulWidget {
-  const Sale({super.key});
+class TotalScreen extends StatefulWidget {
+  const TotalScreen({super.key});
 
   @override
-  State<Sale> createState() => _SaleState();
+  State<TotalScreen> createState() => _TotalScreenState();
 }
 
-class _SaleState extends State<Sale> {
+class _TotalScreenState extends State<TotalScreen> {
   List<Map<String, dynamic>> data = [
     {
       "img":
@@ -111,105 +111,176 @@ class _SaleState extends State<Sale> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-      body:
-      ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (context, index) {
-            return
-              Padding(
-                padding:
-                EdgeInsets.all(10.0),
-                child:
-                SizedBox(
-                  width: double.infinity,
-                  height: 100,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                    color: Colors.white,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image.network(data[index]["img"],
-                          width: 50,
-                          height: 50,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              data[index]["name"].toString(),
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                GestureDetector(
-                                  onTap: (){decrement();},
-                                  child: Text(
-                                    "-",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 30),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                SizedBox(
-                                  width: 30,
-                                  height: 30,
-                                  child: Card(
-                                    shape: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Colors.black)),
-                                    color: Colors.white,
-                                    child: Center(
-                                        child: Text(
-                                          "$up",
-                                          style: TextStyle(color: Colors.black),
-                                        )),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                GestureDetector(
-                                  onTap: (){
-                                    increment();
-                                  },
-                                  child: Text(
-                                    "+",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 20),
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              data[index]["oldprice"].toString(),
-                              style: TextStyle(color: Colors.black, fontSize: 15),
-                            ),
-                            Text(
-                              data[index]["price"].toString(),
-                              style: TextStyle(color: Colors.red, fontSize: 30),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+    return  Scaffold(
+      backgroundColor: Color(0xffEDEEE1),
+      appBar: AppBar(
+        backgroundColor: Color(0xffFFC300),
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.black,
+            )),
+        title: Text(
+          "Sale",
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+        actions: [
+          Icon(
+            Icons.circle,
+            color: Colors.black,
+            size: 15,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Icon(
+            Icons.circle,
+            color: Colors.black,
+            size: 15,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Icon(
+            Icons.circle,
+            color: Colors.black,
+            size: 15,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+        ],
+        elevation: 0,
+      ),
+      body:  SafeArea(
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 30,right: 30 ,top: 10),
+              child: SizedBox(
+                height: 80,
+                child: Card(
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(Icons.shopping_bag_outlined,color: Colors.redAccent,size: 70,),
+                      Text("Total: ",style: TextStyle(color: Colors.black),),
+                      Text("\$672",style: TextStyle(color: Colors.redAccent,fontSize: 30,fontWeight: FontWeight.bold),)
+                    ],
                   ),
                 ),
-              );
-          }),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30,right: 30,top: 100),
+              child: Container(
+                color: Colors.white,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                    itemCount: data.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            width: double.infinity,
+                            height: 100,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Image.network(data[index]["img"],
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      data[index]["name"].toString(),
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        GestureDetector(
+                                          onTap: (){decrement();},
+                                          child: Text(
+                                            "-",
+                                            style: TextStyle(
+                                                color: Colors.black, fontSize: 30),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        SizedBox(
+                                          width: 30,
+                                          height: 30,
+                                          child: Card(
+                                            shape: OutlineInputBorder(
+                                                borderSide:
+                                                BorderSide(color: Colors.black)),
+                                            color: Colors.white,
+                                            child: Center(
+                                                child: Text(
+                                                  "$up",
+                                                  style: TextStyle(color: Colors.black),
+                                                )),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        GestureDetector(
+                                          onTap: (){
+                                            increment();
+                                          },
+                                          child: Text(
+                                            "+",
+                                            style: TextStyle(
+                                                color: Colors.black, fontSize: 20),
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      data[index]["oldprice"].toString(),
+                                      style: TextStyle(color: Colors.black, fontSize: 15),
+                                    ),
+                                    Text(
+                                      data[index]["price"].toString(),
+                                      style: TextStyle(color: Colors.red, fontSize: 30),
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                          ),
+                          Divider(
+                            color: Colors.black,
+                            indent: 30,
+                            endIndent: 30,
+                          )
+                        ],
+                      );
+                    }),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

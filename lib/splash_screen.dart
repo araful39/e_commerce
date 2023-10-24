@@ -1,22 +1,24 @@
 
 
+
+
 import 'dart:async';
 
+import 'package:e_commerce/start_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Start.dart';
-
-class Splash extends StatefulWidget {
-  const Splash({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashScreenState extends State<SplashScreen> {
 void initState(){
   super.initState();
-  Timer(Duration(seconds: 2),()=>Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext)=>Start())));
+  Timer(Duration(seconds: 2),()=>Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext)=>StartScreen())));
 }
   @override
   Widget build(BuildContext context) {

@@ -1,14 +1,17 @@
-import 'package:e_commerce/Login.dart';
+
+
+import 'package:e_commerce/login_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Start extends StatefulWidget {
-  const Start({super.key});
+class StartScreen extends StatefulWidget {
+  const StartScreen({super.key});
 
   @override
-  State<Start> createState() => _StartState();
+  State<StartScreen> createState() => _StartScreenState();
 }
 
-class _StartState extends State<Start> {
+class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -40,12 +43,12 @@ class _StartState extends State<Start> {
                       borderRadius: BorderRadius.circular(5)),
                   child: Center(
                       child: Text(
-                    "Buy here!",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  )),
+                        "Buy here!",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      )),
                 ),
                 Positioned(
                     left: 35,
@@ -64,7 +67,7 @@ class _StartState extends State<Start> {
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
               },
               child: SizedBox(
                 width: 200,
@@ -75,12 +78,12 @@ class _StartState extends State<Start> {
                   color:Color(0xffFFC300),
                   child: Center(
                       child: Text(
-                    "Start Shopping",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  )),
+                        "Start Shopping",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      )),
                 ),
               ),
             ),
@@ -88,5 +91,6 @@ class _StartState extends State<Start> {
         ),
       ),
     );
+
   }
 }
