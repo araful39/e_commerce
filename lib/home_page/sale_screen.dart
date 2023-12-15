@@ -133,9 +133,11 @@ class _SaleScreenState extends State<SaleScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Image.network(data[index]["img"],
-                            width: 60,
-                            height: 60,
+                          Expanded(
+                            child: Image.network(data[index]["img"],
+                              width: 60,
+                              height: 60,
+                            ),
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,9 +1,10 @@
-import 'package:e_commerce/HomePage/blance_screen.dart';
-import 'package:e_commerce/HomePage/review_screen.dart';
-import 'package:e_commerce/HomePage/status_screen.dart';
-import 'package:e_commerce/HomePage/total_screenl.dart';
+
 
 import 'package:e_commerce/auth_pages/login_screen.dart';
+import 'package:e_commerce/home_page/blance_screen.dart';
+import 'package:e_commerce/home_page/review_screen.dart';
+import 'package:e_commerce/home_page/status_screen.dart';
+import 'package:e_commerce/home_page/total_screenl.dart';
 import 'package:flutter/material.dart';
 
 class PersonScreen extends StatefulWidget {
