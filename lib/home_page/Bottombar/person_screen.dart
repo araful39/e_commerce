@@ -3,7 +3,7 @@ import 'package:e_commerce/HomePage/review_screen.dart';
 import 'package:e_commerce/HomePage/status_screen.dart';
 import 'package:e_commerce/HomePage/total_screenl.dart';
 
-import 'package:e_commerce/login_screen.dart';
+import 'package:e_commerce/auth_pages/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class PersonScreen extends StatefulWidget {
